@@ -1,10 +1,10 @@
+export const dynamic = "force-dynamic";
 import { db } from "@/lib/db";
 import { projects } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 import Link from "next/link";
 import { ExternalLink, ArrowLeft } from "lucide-react";
 
-export const dynamic = "force-dynamic";
 
 async function getPublishedProjects() {
   return db.select().from(projects).where(eq(projects.status, "published")).orderBy(projects.createdAt);
